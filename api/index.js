@@ -84,3 +84,11 @@ app.get('/api/leaderboard', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
+export default function handler(req, res) {
+    if (req.method === 'GET') {
+        res.status(200).json({ message: 'API is working!' });
+    } else {
+        res.status(405).json({ error: 'Method not allowed' });
+    }
+}
