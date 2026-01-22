@@ -68,7 +68,7 @@ app.post('/api/register', (req, res) => {
         success: true,
         userId: userId,
         downloadLink: "https://apps.apple.com/us/app/uplate/id6752828206",
-        referralLink: `${req.protocol}://${req.get('host')}/?ref=${userId}`
+        referralLink: `https://u-plate-referral-competition.vercel.app/?ref=${userId}`
     });
 });
 

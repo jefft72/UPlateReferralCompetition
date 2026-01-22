@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Parse URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const referrerId = urlParams.get('ref');
+    const referrerId = urlParams.get('ref') || null;
 
     // Display referrer info if present
     if (referrerId) {
