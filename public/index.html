@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Invite</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <main class="container">
+        
+        <!-- Registration Section -->
+        <section id="register-section" class="card fade-in">
+            <header class="header">
+                <h1>Join the Competition</h1>
+                <p class="subtitle">Download the app. Refer friends. Win.</p>
+            </header>
+
+            <div id="referrer-info" class="referrer-badge hidden">
+                <span class="referrer-label">Invited by a friend</span>
+            </div>
+
+            <form id="referral-form">
+                <div class="input-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Purdue Email</label>
+                    <input type="email" id="email" name="email" placeholder="jane@purdue.edu" required>
+                </div>
+
+                <button type="submit" class="cta-button">
+                    <span>Join & Get App</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- Success/Dashboard Section (Hidden initially) -->
+        <section id="success-section" class="card hidden fade-in">
+            <header class="header">
+                <h1>You're In!</h1>
+                <p class="subtitle">Step 1: Download the App</p>
+            </header>
+
+            <a href="https://apps.apple.com/us/app/uplate/id6752828206" id="download-link-btn" class="download-button" target="_blank">
+                Download App
+            </a>
+
+            <div class="divider"></div>
+
+            <header class="header small-header">
+                <p class="subtitle">Step 2: Win the Competition</p>
+                <h2>Your Referral Link</h2>
+            </header>
+            
+            <div class="referral-box">
+                <input type="text" id="my-referral-link" readonly value="Generating...">
+                <button id="copy-btn" class="icon-button" title="Copy Link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+            <p class="helper-text">Share this link. Must input your name to verify.</p>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
