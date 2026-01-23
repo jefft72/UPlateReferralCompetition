@@ -15,12 +15,17 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Get all users from KV
-    const users = await kv.get('users') || [];
-    const sortedUsers = [...users].sort((a, b) => (b.referrals || 0) - (a.referrals || 0));
-    
-    res.json(sortedUsers.map(u => ({
-        name: `${u.firstName} ${u.lastName}`,
-        referrals: u.referrals || 0
-    })));
+    try {
+        // Get all users from KV
+        const users = await kv.get('users') || [];
+        const sortedUsers = [...users].sort((a, b) => (b.referrals || 0) - (a.referrals || 0));
+        
+        res.json(sortedUsers.map(u => ({
+            name: `${u.firstName} ${u.lastName}`,
+            referrals: u.referrals || 0
+        })));
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Server error', details: error.message });
+    }
 }

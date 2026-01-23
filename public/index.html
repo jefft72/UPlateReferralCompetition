@@ -41,6 +41,11 @@
                     <input type="email" id="email" name="email" placeholder="jane@purdue.edu" required>
                 </div>
 
+                <div class="input-group">
+                    <label for="instagram">Instagram Handle</label>
+                    <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+                </div>
+
                 <button type="submit" class="cta-button">
                     <span>Join & Get App</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -51,28 +56,19 @@
         <!-- Success/Dashboard Section (Hidden initially) -->
         <section id="success-section" class="card hidden fade-in">
             <header class="header">
-                <h1>You're In!</h1>
-                <p class="subtitle">Step 1: Download the App</p>
+                <h1>Thank you for participating!</h1>
+                <p class="subtitle">We'll DM you your referral link on Instagram when it's time for the competition. Good luck!</p>
             </header>
 
-            <a href="https://apps.apple.com/us/app/uplate/id6752828206" id="download-link-btn" class="download-button" target="_blank">
-                Download App
-            </a>
-
-            <div class="divider"></div>
-
-            <header class="header small-header">
-                <p class="subtitle">Step 2: Win the Competition</p>
-                <h2>Your Referral Link</h2>
-            </header>
-            
-            <div class="referral-box">
-                <input type="text" id="my-referral-link" readonly value="Generating...">
-                <button id="copy-btn" class="icon-button" title="Copy Link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </button>
+            <div class="rules">
+                <h2 style="text-align: center; margin-bottom: 1.5em;">Rules:</h2>
+                <ul style="list-style: disc; padding-left: 30px; line-height: 1.8;">
+                    <li style="margin-bottom: 1.5em;">You and the people you're referring must be a Purdue student.</li>
+                    <li style="margin-bottom: 1.5em;">Both you and the person who uses your link must have the app downloaded.</li>
+                    <li style="margin-bottom: 1.5em;">No cheating or gaming of the system in <strong>any way shape or form.</strong></li>
+                </ul>
+                <p style="margin-top: 2em; line-height: 1.8;">If you break any of these rules, it will result in an immediate disqualification.</p>
             </div>
-            <p class="helper-text">Share this link. Must input your name to verify.</p>
         </section>
 
     </main>

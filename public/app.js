@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
             email: document.getElementById('email').value,
+            instagram: document.getElementById('instagram').value, // Added Instagram handle
             referrerId: referrerId
         };
 
