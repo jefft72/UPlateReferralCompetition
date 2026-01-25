@@ -14,6 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // referrerInfo.querySelector('.referrer-label').textContent = `Invited by ${referrerId}`; // Optional: Show specific name if API supported it
     }
 
+    // Detect platform and set appropriate download link
+    const downloadLink = document.getElementById('download-app-link');
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (isAndroid) {
+        downloadLink.href = 'https://play.google.com/store/apps/details?id=com.njr.boilerFuel'; 
+    } else {
+        downloadLink.href = 'https://apps.apple.com/us/app/uplate/id6752828206';
+    }
+
     referralForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
