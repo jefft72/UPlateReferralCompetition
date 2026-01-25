@@ -1,12 +1,85 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const introSection = document.getElementById('intro-section');
+    const mainContainer = document.getElementById('main-container');
+    const enterBtn = document.getElementById('enter-btn');
     const registerSection = document.getElementById('register-section');
     const successSection = document.getElementById('success-section');
     const referralForm = document.getElementById('referral-form');
     const referrerInfo = document.getElementById('referrer-info');
+    const typewriterText = document.getElementById('typewriter-text');
     
     // Parse URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const referrerId = urlParams.get('ref') || null;
+
+    // Typewriter effect for fullscreen intro
+    const phrases = [
+        "Join the competition.",
+        "Share UPlate.",
+        "Win $50."
+    ];
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 80;
+
+    function typeWriter() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        
+        if (!isDeleting) {
+            // Typing
+            typewriterText.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+            currentCharIndex++;
+            
+            if (currentCharIndex === currentPhrase.length) {
+                // Finished typing current phrase
+                if (currentPhraseIndex < phrases.length - 1) {
+                    // Pause before deleting
+                    setTimeout(() => {
+                        isDeleting = true;
+                        typeWriter();
+                    }, 800);
+                } else {
+                    // Last phrase finished, fade out intro section
+                    setTimeout(() => {
+                        fadeOutIntro();
+                    }, 1000);
+                }
+                return;
+            }
+        } else {
+            // Deleting - delete entire text
+            currentCharIndex--;
+            typewriterText.textContent = currentPhrase.substring(0, currentCharIndex);
+            
+            if (currentCharIndex === 0) {
+                // Finished deleting, move to next phrase
+                isDeleting = false;
+                currentPhraseIndex++;
+                setTimeout(typeWriter, 300);
+                return;
+            }
+        }
+        
+        const speed = isDeleting ? typingSpeed / 2 : typingSpeed;
+        setTimeout(typeWriter, speed);
+    }
+
+    function fadeOutIntro() {
+        introSection.classList.add('fade-out');
+        setTimeout(() => {
+            introSection.classList.add('hidden');
+            mainContainer.classList.remove('hidden');
+            mainContainer.classList.add('fade-in');
+        }, 500);
+    }
+
+    // Start typewriter effect
+    typeWriter();
+
+    // Detect user interaction to skip intro
+    introSection.addEventListener('click', fadeOutIntro);
+    introSection.addEventListener('touchstart', fadeOutIntro);
 
     // Display referrer info if present
     if (referrerId) {
