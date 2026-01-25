@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typewriter effect for fullscreen intro
     const phrases = [
         "Join the competition.",
-        "Share UPlate.",
+        "Share U-Plate.",
         "Win $50."
     ];
     let currentPhraseIndex = 0;
