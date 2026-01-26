@@ -16,9 +16,9 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { firstName, lastName, email, referrerId } = req.body;
+        const { firstName, lastName, email, referrerId, instagram } = req.body;
 
-        if (!firstName || !lastName || !email) {
+        if (!firstName || !lastName || !email || !instagram) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
@@ -46,6 +46,7 @@ export default async function handler(req, res) {
             firstName,
             lastName,
             email,
+            instagram, // Add Instagram handle to the user object
             referrerId: referrerId || null,
             referrals: 0,
             createdAt: new Date().toISOString()
